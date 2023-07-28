@@ -1,9 +1,9 @@
 import React from "react";
 import { View } from "react-native";
-import { COLORS } from "../constants";
-import ReadButton from "../components/Books/ReadButton";
-import BookDescription from "../components/Books/BookDescription";
-import BookInfoSection from "../components/Books/BookInfoSection";
+import { COLORS } from "../../constants";
+import ReadButton from "../../components/Books/ReadButton";
+import BookDescription from "../../components/Books/BookDescription";
+import BookInfoSection from "../../components/Books/BookInfoSection";
 
 const BookDetail = ({ route, navigation }) => {
 

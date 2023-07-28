@@ -1,17 +1,16 @@
 import Home from "./Home";
-import BookDetail from "./BookDetail";
 import Search from "./Search";
 import Notification from "./Notification";
 import ReadingPage from "./ReadingPage";
 import ReservationProccess from "./ReservationProccess";
 import Profile from "./Profile";
-import AddBook from "./AddBook";
-import EditBook from "./EditBook";
-import Books from "./Books";
+import AddBook from "./Books/AddBook";
+import EditBook from "./Books/EditBook";
+import Books from "./Books/Books";
+import BookDetail from "./Books/BookDetail";
 
 export {
     Home,
-    BookDetail,
     Search,
     Notification,
     ReadingPage,
@@ -19,5 +18,6 @@ export {
     Profile,
     AddBook,
     EditBook,
-    Books
+    Books,
+    BookDetail,
 };

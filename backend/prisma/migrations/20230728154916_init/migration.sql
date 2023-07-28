@@ -12,7 +12,7 @@ CREATE TABLE "Post" (
     "updatedAt" DATETIME NOT NULL,
     "title" TEXT NOT NULL,
     "content" TEXT,
-    "publicationYear" INTEGER NOT NULL DEFAULT 0,
+    "publicationYear" TEXT,
     "published" BOOLEAN NOT NULL DEFAULT false,
     "viewCount" INTEGER NOT NULL DEFAULT 0,
     "author" TEXT

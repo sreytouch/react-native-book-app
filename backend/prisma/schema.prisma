@@ -19,7 +19,7 @@ model Post {
   updatedAt DateTime @updatedAt
   title     String
   content   String?
-  publicationYear Int @default(0)
+  publicationYear String?
   published Boolean  @default(false)
   viewCount Int      @default(0)
   author   String? 

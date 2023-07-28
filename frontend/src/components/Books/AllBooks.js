@@ -85,7 +85,7 @@ const AllBooks = ({ navigation }) => {
                         style={{ position: 'absolute', top: 5, right: 15 }}
                         onPress={() => navigation.navigate("EditBook")}
                     >
-                        <View style={{
+                        {/* <View style={{
                             backgroundColor: COLORS.primary,
                             borderRadius:20,
                             padding: 5,
@@ -101,7 +101,7 @@ const AllBooks = ({ navigation }) => {
                                     tintColor: COLORS.lightGray
                                 }}
                             />
-                        </View>
+                        </View> */}
                         <View style={{
                             backgroundColor: COLORS.primary,
                             borderRadius:20,

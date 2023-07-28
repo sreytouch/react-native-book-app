@@ -21,6 +21,13 @@ export const COLORS = {
     lightBlue: "#424BAF",
     darkGreen: "#213432",
     lightGreen: "#31Ad66",
+    
+    success: '#12a454',
+    danger: '#e83f5b',
+    dark: '#121214',
+    light: '#f1f1f1',
+    gray500: '#a8a8b3',
+    gray800: '#29292e'
 
 };
 
@@ -32,6 +39,7 @@ export const SIZES = {
     padding: 24,
     padding1: 15,
     padding2: 36,
+    padding3: 40,
 
     // font sizes
     largeTitle: 50,

@@ -4,7 +4,7 @@ import { COLORS, SIZES } from "../constants";
 import Header from "../components/Header";
 import ListBooks from "../components/Books/ListBooks";
 import Categories from "../components/Categories";
-import Account from "../components/Account";
+// import Account from "../components/Account";
 import Reservation from "../components/Reservation";
 
 const Home = ({ navigation }) => {

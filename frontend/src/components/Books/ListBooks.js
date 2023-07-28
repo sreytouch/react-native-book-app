@@ -5,36 +5,40 @@ import {
     TouchableOpacity,
     Image,
     FlatList,
-    ActivityIndicator
+    ActivityIndicator,
+    RefreshControl
 } from "react-native";
-import { FONTS, COLORS, SIZES, icons, images } from "../../constants";
 import axios from "axios";
+import { FONTS, COLORS, SIZES, icons, images } from "../../constants";
+import { baseUrl } from "../../services/BaseApi";
 
 const ListBooks = ({ navigation }) => {
-
-    const [isLoading, setLoading] = useState(true);
+    const [refreshing, setRefreshing] = useState(false);
     const [data, setData] = useState([]);
 
+    useEffect(() => {
+        getMovies();
+    }, []);
+
     const getMovies = async () => {
-        const url = 'http://192.168.1.12:3000/books';
         try {
-            await axios.get(url)
-            .then(response => {
-                setData(response.data);
-            })
+            await axios.get(`${baseUrl}books`)
+                .then(response => {
+                    setRefreshing(true);
+                    setData(response.data);
+                    setTimeout(() => {
+                        setRefreshing(false);
+                    }, 500);
+                })
                 .catch(error => {
                     console.error('Error:', error);
                 });
         } catch (error) {
             console.error(error);
         } finally {
-            setLoading(false);
+            setRefreshing(false);
         }
     };
-
-    useEffect(() => {
-        getMovies();
-    }, []);
 
     const renderItem = ({ item, index }) => {
         return (
@@ -101,19 +105,28 @@ const ListBooks = ({ navigation }) => {
             </View>
 
             {/* Books */}
-            <View style={{ flex: 1, marginTop: 10 }}>
-                {isLoading ? (
-                    <ActivityIndicator />
-                ) : (
-                    <FlatList
-                        data={data}
-                        renderItem={renderItem}
-                        keyExtractor={item => `${item.id}`}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                    />
-                )}
-            </View>
+            {data.length == 0 ?
+                <View>
+                    <Text style={{ fontSize: SIZES.body2, textAlign: "center", color: COLORS.lightRed }}> No Data ... </Text>
+                </View>
+                :
+                <View style={{ flex: 1, marginTop: 10 }}>
+                    {refreshing
+                        ? <ActivityIndicator /> :
+                        <FlatList
+                            data={data}
+                            keyExtractor={item => `${item.id}`}
+                            enableEmptySections={true}
+                            renderItem={renderItem}
+                            horizontal
+                            showsHorizontalScrollIndicator={false}
+                            refreshControl={
+                                <RefreshControl refreshing={refreshing} onRefresh={getMovies} />
+                            }
+                        />
+                    }
+                </View>
+            }
         </View>
     )
 }

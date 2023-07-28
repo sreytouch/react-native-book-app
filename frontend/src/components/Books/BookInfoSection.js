@@ -72,7 +72,7 @@ const BookInfoSection = ({ navigation, book }) => {
                         paddingRight: SIZES.radius,
                         borderRadius: 20
                     }}
-                    onPress={() => navigation.navigate("EditBook")}
+                    onPress={() => navigation.navigate("EditBook", book.id)}
                 >
                     <View style={{ 
                         flex: 1, 

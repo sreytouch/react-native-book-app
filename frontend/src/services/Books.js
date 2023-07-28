@@ -1,7 +1,7 @@
 import { images } from '../constants';
 
 export const profileData = {
-    name: 'Sreytouch Lang(Jessica)',
+    name: 'Sreytouch (Jessica)',
     point: 200
 }
 
